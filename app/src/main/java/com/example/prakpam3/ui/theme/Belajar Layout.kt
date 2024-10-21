@@ -1,8 +1,15 @@
-package com.example.prakpam3.ui.theme
+package com.example.pertemuan4
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -15,22 +22,52 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.meet4.R
+import com.example.prakpam3.R
+
 
 @Preview(showBackground = true)
 @Composable
 fun BelajarLayout(
-    modifier: Modifier = Modifier
-) {
+    modifier : Modifier = Modifier
+){
+
     Column(
-        modifier = modifier.fillMaxSize()
+        modifier = Modifier.fillMaxSize()
     ) {
         HeaderSection()
-        DataMhs()
+        DetailMHS(
+            param = "nama",
+            argu = " Cintia"
+        )
+        DetailMHS(
+            param = "nim",
+            argu = "20220140165"
+        )
+        DetailMHS(
+            param = "prodi",
+            argu = "teknologi informasi"
+        )
+        DetailMHS(
+            param = "fakultas",
+            argu = "teknik"
+        )
+        DetailMHS(
+            param = "universitas",
+            argu = "Universitas Muhammadiyah Yogyakarta"
+        )
+        DetailMHS(
+            param = "alamat",
+            argu = "bantul"
+        )
+        DetailMHS(
+            param = "email",
+            argu = "cintia@gmail.com"
+        )
     }
 }
 
 @Composable
+
 fun HeaderSection() {
     Box(
         modifier = Modifier.fillMaxSize().background(Color.LightGray)
@@ -39,14 +76,14 @@ fun HeaderSection() {
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
             Image(
-                painter = painterResource(id = R.drawable.umy1.png),
+                painter = painterResource(id = R.drawable.umy1),
                 contentDescription = null,
-                modifier = Modifier.size(50.dp).clip(CircleShape)
+                modifier = Modifier.clip(CircleShape)
             )
             Icon(
                 Icons.Filled.Check,
                 contentDescription = null,
-                modifier = Modifier.size(30.dp)
+                modifier=Modifier.size(30.dp)
             )
             Column(
                 modifier = Modifier.padding(14.dp)
@@ -59,23 +96,16 @@ fun HeaderSection() {
 }
 
 @Composable
-fun DataMhs() {
-    Column(
-        modifier = Modifier.padding(16.dp)
-    ) {
+fun DetailMHS( param:String, argu:String ){
+    Column (modifier = Modifier.padding(16.dp))
+    {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Text(
-                text = "Name",
-                modifier = Modifier.weight(0.8f)
-            )
-            Text(text = ":")
-            Text(
-                text = "Prof. Joko Indro Satrio Wijaya, S. Kom.",
-                modifier = Modifier.weight(2f)
-            )
+        ){
+            Text(text = param, modifier = Modifier.weight(0.8f))
+            Text(text = ": ", modifier = Modifier.weight(0.2f))
+            Text(text = argu, modifier = Modifier.weight(2f))
         }
     }
 }
