@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Check
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
@@ -70,21 +71,28 @@ fun BelajarLayout(
 
 fun HeaderSection() {
     Box(
-        modifier = Modifier.fillMaxSize().background(Color.LightGray)
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.LightGray)
     ) {
         Row(
             modifier = Modifier.fillMaxWidth().padding(16.dp)
         ) {
-            Image(
-                painter = painterResource(id = R.drawable.umy1),
-                contentDescription = null,
-                modifier = Modifier.clip(CircleShape)
-            )
-            Icon(
-                Icons.Filled.Check,
-                contentDescription = null,
-                modifier=Modifier.size(30.dp)
-            )
+            Box(
+                contentAlignment =  Alignment.BottomEnd,
+            ){
+                Image(
+                    painter = painterResource(id = R.drawable.umy1),
+                    contentDescription = null,
+                    modifier = Modifier.clip(CircleShape)
+                )
+                Icon(
+                    Icons.Filled.Check,
+                    contentDescription = null,
+                    modifier=Modifier.size(30.dp)
+                )
+            }
+
             Column(
                 modifier = Modifier.padding(14.dp)
             ) {
@@ -108,4 +116,5 @@ fun DetailMHS( param:String, argu:String ){
             Text(text = argu, modifier = Modifier.weight(2f))
         }
     }
+
 }
